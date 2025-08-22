@@ -1,0 +1,100 @@
+﻿<section id="subscribe">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-8">
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <div class="title-element">
+                            <h2 class="section-title divider">E-bültenimize abone olun</h2>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="subscribe-content aos-init aos-animate" data-aos="fade-up">
+                            <p>
+                                Güncel duyuru ve kampanyalardan haberdar olmak için e-posta adresinizi paylaşın.
+                            </p>
+                            <form id="form">
+                                <input type="text" name="email" placeholder="E-posta adresinizi buraya girin">
+                                <button class="btn-subscribe" id="btnSubsribe">
+                                    <span>Abone Ol</span>
+                                    <i class="icon icon-send"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    (function () {
+      "use strict";
+
+      const API_URL = "https://localhost:7287/api/Subscribers"; // API tam adresi
+      const $form = $("#form");
+      const $btn  = $("#btnSubsribe"); // mevcut id (yazımı bu şekilde)
+
+      // Basit e-posta doğrulama regex'i
+        const emailRegex = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+
+      $form.on("submit", function (e) {
+        e.preventDefault();
+
+        const email = $.trim($form.find('input[name="email"]').val() || "");
+        if (!emailRegex.test(email)) {
+          Swal.fire({ icon: "warning", title: "Geçersiz e-posta", text: "Lütfen geçerli bir e-posta adresi giriniz." });
+          return;
+        }
+
+        // UI: butonu kilitle
+        const originalHtml = $btn.html();
+        $btn.prop("disabled", true).html("<span>Gönderiliyor…</span>");
+
+        $.ajax({
+          url: API_URL,
+          method: "POST",
+          contentType: "application/json; charset=utf-8",
+          data: JSON.stringify({ email }),
+          // Kimlik doğrulama gerekiyorsa açın:
+          // headers: { Authorization: "Bearer <JWT>" },
+          // Cookie tabanlı oturum kullanıyorsanız:
+          // xhrFields: { withCredentials: true },
+        })
+        .done(function () {
+          $form[0].reset();
+          Swal.fire({ icon: "success", title: "Abonelik alındı", text: "Başarıyla kaydoldunuz." });
+        })
+        .fail(function (xhr) {
+          if (xhr.status === 0) {
+            // Genelde CORS/SSL veya ağ engeli
+            Swal.fire({ icon: "error", title: "Bağlantı engellendi", text: "CORS/SSL nedeniyle istek bloklandı." });
+            return;
+          }
+          if (xhr.status === 409) {
+            Swal.fire({ icon: "info", title: "Zaten abonesiniz", text: "Bu e-posta adresi zaten kayıtlı." });
+            return;
+          }
+          const msg = (xhr.responseJSON && (xhr.responseJSON.message || xhr.responseJSON.error))
+                   || xhr.responseText || xhr.statusText || "Bilinmeyen hata";
+          Swal.fire({ icon: "error", title: "İşlem başarısız", text: `Sunucu: ${xhr.status} ${msg}` });
+        })
+        .always(function () {
+          $btn.prop("disabled", false).html(originalHtml);
+        });
+      });
+    })();
+</script>
+
+

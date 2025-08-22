@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+
+<body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
+
+
+    @await Component.InvokeAsync("UISliderBook")
+
+    <section id="client-holder" data-aos="fade-up">
+        <div class="container">
+            <div class="row">
+                <div class="inner-content">
+                    <div class="logo-wrap">
+                        <div class="grid">
+                            <a href="#"><img src="~/booksaw-1.0.0/images/client-image1.png" alt="client"></a>
+                            <a href="#"><img src="~/booksaw-1.0.0/images/client-image2.png" alt="client"></a>
+                            <a href="#"><img src="~/booksaw-1.0.0/images/client-image3.png" alt="client"></a>
+                            <a href="#"><img src="~/booksaw-1.0.0/images/client-image4.png" alt="client"></a>
+                            <a href="#"><img src="~/booksaw-1.0.0/images/client-image5.png" alt="client"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @await Component.InvokeAsync("UIFeaturedBooks")
+
+    @await Component.InvokeAsync("UIRandomBook")
+
+    @await Component.InvokeAsync("UIPopularBooks")
+
+    @await Component.InvokeAsync("UIQuotes")
+
+    @await Component.InvokeAsync("UISubscribe")
+
+
+
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="footer-item">
+                        <div class="company-brand">
+                            <img src="~/booksaw-1.0.0/images/main-logo.png" alt="logo" class="footer-logo">
+                            <p>
+                                Şirketimiz ve hizmetlerimiz hakkında güncel bilgi ve duyurular için bizi takip edin.
+                                Müşteri memnuniyetini esas alan yaklaşımımızla kaliteli içerik ve deneyim sunuyoruz.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="footer-menu">
+                        <h5>Hakkımızda</h5>
+                        <ul class="menu-list">
+                            <li class="menu-item"><a href="#">Vizyon</a></li>
+                            <li class="menu-item"><a href="#">Makaleler</a></li>
+                            <li class="menu-item"><a href="#">Kariyer</a></li>
+                            <li class="menu-item"><a href="#">Hizmet Şartları</a></li>
+                            <li class="menu-item"><a href="#">Bağış Yap</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="footer-menu">
+                        <h5>Keşfet</h5>
+                        <ul class="menu-list">
+                            <li class="menu-item"><a href="#">Ana Sayfa</a></li>
+                            <li class="menu-item"><a href="#">Kitaplar</a></li>
+                            <li class="menu-item"><a href="#">Yazarlar</a></li>
+                            <li class="menu-item"><a href="#">Konular</a></li>
+                            <li class="menu-item"><a href="#">Gelişmiş Arama</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="footer-menu">
+                        <h5>Hesabım</h5>
+                        <ul class="menu-list">
+                            <li class="menu-item"><a href="#">Giriş Yap</a></li>
+                            <li class="menu-item"><a href="#">Sepeti Görüntüle</a></li>
+                            <li class="menu-item"><a href="#">İstek Listem</a></li>
+                            <li class="menu-item"><a href="#">Siparişimi Takip Et</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="footer-menu">
+                        <h5>Yardım</h5>
+                        <ul class="menu-list">
+                            <li class="menu-item"><a href="#">Yardım Merkezi</a></li>
+                            <li class="menu-item"><a href="#">Sorun Bildir</a></li>
+                            <li class="menu-item"><a href="#">Düzenleme Öner</a></li>
+                            <li class="menu-item"><a href="#">Bize Ulaşın</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <!-- / row -->
+        </div>
+    </footer>
+
+    <div id="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="copyright">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>
+                                    © 2022 Tüm hakları saklıdır. Ücretsiz HTML şablonu:
+                                    <a href="https://www.templatesjungle.com/" target="_blank">TemplatesJungle</a>
+                                </p>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="social-links align-right">
+                                    <ul>
+                                        <li><a href="#"><i class="icon icon-facebook"></i></a></li>
+                                        <li><a href="#"><i class="icon icon-twitter"></i></a></li>
+                                        <li><a href="#"><i class="icon icon-youtube-play"></i></a></li>
+                                        <li><a href="#"><i class="icon icon-behance-square"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--grid-->
+
+                </div><!--footer-bottom-content-->
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

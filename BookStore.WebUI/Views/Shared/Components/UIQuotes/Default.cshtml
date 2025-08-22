@@ -1,0 +1,12 @@
+﻿@using BookStore.DtoLayer.Dtos.QuoteDtos
+@model ResultQuoteDto
+<section id="quotation" class="align-center pb-5 mb-5">
+    <div class="inner-content">
+        <h2 class="section-title divider">Günün Sözü</h2>
+        <blockquote data-aos="fade-up">
+            <q>
+                @Model.QuoteName
+            </q>
+        </blockquote>
+    </div>
+</section>

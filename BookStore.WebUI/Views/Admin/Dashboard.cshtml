@@ -1,0 +1,483 @@
+﻿@using BookStore.EntityLayer.Concrete
+@model DashboardStats
+
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+<!-- Layout wrapper -->
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+
+        <!-- / Navbar -->
+        <!-- Content wrapper -->
+        <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 order-1">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12 col-6 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar flex-shrink-0">
+                                                <img src="~/sneat-1.0.0/assets/img/icons/unicons/book.png"
+                                                     alt="başarılı grafik"
+                                                     class="rounded" />
+                                            </div>
+                                            <div class="dropdown">
+                                                <button class="btn p-0"
+                                                        type="button"
+                                                        id="cardOpt3"
+                                                        data-bs-toggle="dropdown"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
+                                                    <a class="dropdown-item" href="javascript:void(0);">Daha Fazla Gör</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);">Sil</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="fw-semibold d-block mb-1">Kaç Kitapımız Var?</span>
+                                        <h3 class="card-title mb-2">@Model.ProductTotal</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-6 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar flex-shrink-0">
+                                                <img src="~/sneat-1.0.0/assets/img/icons/unicons/user.png"
+                                                     alt="Kredi Kartı"
+                                                     class="rounded" />
+                                            </div>
+                                            <div class="dropdown">
+                                                <button class="btn p-0"
+                                                        type="button"
+                                                        id="cardOpt6"
+                                                        data-bs-toggle="dropdown"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
+                                                    <a class="dropdown-item" href="javascript:void(0);">Daha Fazla Gör</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);">Sil</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="fw-semibold d-block mb-1">Kaç Abonemiz Var?</span>
+                                        <h3 class="card-title text-nowrap mb-1">@Model.SubscriberTotal</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-6 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar flex-shrink-0">
+                                                <img src="~/sneat-1.0.0/assets/img/icons/unicons/quote.png"
+                                                     alt="başarılı grafik"
+                                                     class="rounded" />
+                                            </div>
+                                            <div class="dropdown">
+                                                <button class="btn p-0"
+                                                        type="button"
+                                                        id="cardOpt3"
+                                                        data-bs-toggle="dropdown"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
+                                                    <a class="dropdown-item" href="javascript:void(0);">Daha Fazla Gör</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);">Sil</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="fw-semibold d-block mb-1">Kaç Tane Günün Sözü Var?</span>
+                                        <h3 class="card-title mb-2">@Model.QuoteTotal</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!--/ Total Revenue -->
+                    <div class="col-12 col-md-8 col-lg-12 order-2 order-md-2">
+                        <div class="row">
+                            <div class="col-4 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar flex-shrink-0">
+                                                <img src="~/sneat-1.0.0/assets/img/icons/unicons/book.png" alt="Kredi Kartı" class="rounded" />
+                                            </div>
+                                            <div class="dropdown">
+                                                <button class="btn p-0"
+                                                        type="button"
+                                                        id="cardOpt4"
+                                                        data-bs-toggle="dropdown"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
+                                                    <a class="dropdown-item" href="javascript:void(0);">Daha Fazla Gör</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);">Sil</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="fw-semibold d-block mb-1">Hangi Kategoride En Çok Kitap Var?</span>
+                                        <h3 class="card-title text-nowrap mb-2">@Model.CategoryHasMostBook.CategoryName</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar flex-shrink-0">
+                                                <img src="~/sneat-1.0.0/assets/img/icons/unicons/book.png" alt="Kredi Kartı" class="rounded" />
+                                            </div>
+                                            <div class="dropdown">
+                                                <button class="btn p-0"
+                                                        type="button"
+                                                        id="cardOpt1"
+                                                        data-bs-toggle="dropdown"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="cardOpt1">
+                                                    <a class="dropdown-item" href="javascript:void(0);">Daha Fazla Gör</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);">Sil</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="fw-semibold d-block mb-1">En Az Stoğa Sahip Kitap</span>
+                                        <h3 class="card-title mb-2">@Model.ProductHasLowestStock.ProductName </h3>
+                                        <small class="text-warning fw-semibold"><i class="bx bx-down-arrow-alt"></i> @Model.ProductHasLowestStock.ProductStock Adet</small>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-6 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar flex-shrink-0">
+                                                <img src="~/sneat-1.0.0/assets/img/icons/unicons/book.png"
+                                                     alt="başarılı grafik"
+                                                     class="rounded" />
+                                            </div>
+                                            <div class="dropdown">
+                                                <button class="btn p-0"
+                                                        type="button"
+                                                        id="cardOpt3"
+                                                        data-bs-toggle="dropdown"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
+                                                    <a class="dropdown-item" href="javascript:void(0);">Daha Fazla Gör</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);">Sil</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="fw-semibold d-block mb-1">En Pahalı Kitabımız</span>
+                                        <h3 class="card-title mb-2">@Model.MostExpensiveProduct.ProductName</h3>
+                                        <small class="text-warning fw-semibold">@Model.MostExpensiveProduct.ProductPrice ₺</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8 col-lg-12 order-3 order-md-3">
+                        <div class="row">
+                            <div class="col-4 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar flex-shrink-0">
+                                                <img src="~/sneat-1.0.0/assets/img/icons/unicons/user.png" alt="Kredi Kartı" class="rounded" />
+                                            </div>
+                                            <div class="dropdown">
+                                                <button class="btn p-0"
+                                                        type="button"
+                                                        id="cardOpt4"
+                                                        data-bs-toggle="dropdown"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
+                                                    <a class="dropdown-item" href="javascript:void(0);">Daha Fazla Gör</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);">Sil</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="fw-semibold d-block mb-1">Kaç Aktif Abonemiz Var?</span>
+                                        <h3 class="card-title text-nowrap mb-2">@Model.SubscriberActive</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar flex-shrink-0">
+                                                <img src="~/sneat-1.0.0/assets/img/icons/unicons/book.png" alt="Kredi Kartı" class="rounded" />
+                                            </div>
+                                            <div class="dropdown">
+                                                <button class="btn p-0"
+                                                        type="button"
+                                                        id="cardOpt1"
+                                                        data-bs-toggle="dropdown"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="cardOpt1">
+                                                    <a class="dropdown-item" href="javascript:void(0);">Daha Fazla Gör</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);">Sil</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="fw-semibold d-block mb-1">En Fazla Kitabı Olan Yazar</span>
+                                        <h3 class="card-title mb-2">@Model.TopWriterName</h3>
+                                        <small class="text-success fw-semibold">@Model.TopWriterBookCount Adet</small>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-6 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar flex-shrink-0">
+                                                <img src="~/sneat-1.0.0/assets/img/icons/unicons/user.png"
+                                                     alt="başarılı grafik"
+                                                     class="rounded" />
+                                            </div>
+                                            <div class="dropdown">
+                                                <button class="btn p-0"
+                                                        type="button"
+                                                        id="cardOpt3"
+                                                        data-bs-toggle="dropdown"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
+                                                    <a class="dropdown-item" href="javascript:void(0);">Daha Fazla Gör</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);">Sil</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="fw-semibold d-block mb-1">En Fazla Abone Gelen Ay</span>
+                                        <h3 class="card-title mb-2">@Model.MostSubcriberMonth</h3>
+                                        <small class="text-warning fw-semibold">@Model.MostSubcriberMonthCount Abone</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- </div>
+                            <div class="row"> -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <!-- Order Statistics -->
+                    <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                                <div class="card-title mb-0">
+                                    <h5 class="m-0 me-2">Son Eklenen Kitaplar</h5>
+                                    <small class="text-muted">Toplam @Model.ProductTotal Kitap</small>
+                                </div>
+
+                            </div>
+                            <div class="card-body">
+                                <ul class="p-2 m-2">
+                                    @foreach (var item in Model.LastProducts)
+                                    {
+
+                                        <li class="d-flex mb-4 pb-1">
+                                            <div class="avatar flex-shrink-0 me-3">
+                                                <span class="avatar-initial rounded bg-label-primary">
+                                                    <i class="bx bx-book-alt"></i>
+                                                </span>
+                                            </div>
+                                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                                <div class="me-2">
+                                                    <h6 class="mb-0">@item.ProductName</h6>
+                                                    <small class="text-muted">@item.ProductStock Adet</small>
+
+                                                </div>
+                                                <div class="user-progress">
+                                                    <small class="fw-semibold">@item.ProductPrice ₺</small>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-4 order-1 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                                <div class="card-title mb-0">
+                                    <h5 class="m-0 me-2">Son Abonelerimiz</h5>
+                                    <small class="text-muted">Toplam @Model.SubscriberTotal Abone</small>
+                                </div>
+
+                            </div>
+                            <div class="card-body">
+                                <ul class="p-2 m-2">
+                                    @foreach (var item in Model.RecentSubscribers)
+                                    {
+                                        <li class="d-flex mb-4 pb-1">
+                                            <div class="avatar flex-shrink-0 me-3">
+                                                <span class="avatar-initial rounded bg-label-primary">
+                                                    <i class="bx bx-envelope"></i>
+                                                </span>
+                                            </div>
+                                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                                <div class="me-2">
+                                                    <h6 class="mb-0">@item.SubcriberMail</h6>
+
+
+                                                </div>
+                                                <div class="user-progress">
+                                                </div>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ Order Statistics -->
+                    <!-- Expense Overview -->
+                    <div class="col-md-6 col-lg-4 order-1 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                @DateTime.Now.Year Yılı Abone Sayısı
+                                <ul class="nav nav-pills" role="tablist">
+                                    <li class="nav-item">
+
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body px-0">
+                                <div class="tab-content p-0">
+                                    <div class="tab-pane fade show active" id="navs-tabs-line-card-income" role="tabpanel">
+                                        <div class="d-flex p-4 pt-3">
+                                            <div class="avatar flex-shrink-0 me-3">
+                                                <img src="~/sneat-1.0.0/assets/img/icons/unicons/wallet.png" alt="Kullanıcı" />
+                                            </div>
+                                            <div>
+                                                <small class="text-muted d-block">Toplam Abone</small>
+                                                <div class="d-flex align-items-center">
+                                                    <h6 class="mb-0 me-1">@Model.SubscriberTotal</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="subschart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ Expense Overview -->
+                    <!-- Transactions -->
+                    <!--/ Transactions -->
+                </div>
+            </div>
+            <!-- / Content -->
+            <!-- Footer -->
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+        </div>
+        <!-- Content wrapper -->
+    </div>
+    <!-- / Layout page -->
+</div>
+
+<!-- Overlay -->
+<div class="layout-overlay layout-menu-toggle"></div>
+<!-- / Layout wrapper -->
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<script>
+    (function () {
+      "use strict";
+
+      const el = document.querySelector("#subschart");
+      if (!el) return;
+      if (!window.ApexCharts) { console.error("ApexCharts yüklenmedi."); return; }
+
+      const year = new Date().getFullYear();
+          const url  = `https://localhost:7287/api/Dashboard`;
+
+      $.getJSON(url)
+        .done(function (res) {
+          const items = res.items || res.MonthlySubscriber || res.monthlySubscriber || [];
+          const categories = items.map(x => x.monthName);
+          const seriesData = items.map(x => x.count);
+
+          const options = {
+            chart: {
+              type: "area",
+              height: 220,
+              toolbar: { show: false },
+              zoom: { enabled: false },
+              sparkline: { enabled: true } // kart içi sade görünüm
+            },
+            series: [{ name: "Yeni Abone", data: seriesData }],
+            dataLabels: { enabled: false },
+            stroke: { curve: "smooth", width: 3 },
+            fill: {
+              type: "gradient",
+              gradient: { shadeIntensity: 0.25, opacityFrom: 0.6, opacityTo: 0.15 }
+            },
+            grid: { show: false, padding: { left: 8, right: 8 } },
+            xaxis: {
+              categories: categories,
+              labels: { show: true },
+              axisBorder: { show: false },
+              axisTicks: { show: false }
+            },
+            yaxis: {
+              labels: { show: true },
+              min: 0,
+              forceNiceScale: true
+            },
+            tooltip: {
+              y: { formatter: v => `${v} abone` }
+            },
+            noData: { text: "Veri bulunamadı" }
+          };
+
+          new ApexCharts(el, options).render();
+        })
+        .fail(function (xhr) {
+          console.error("Monthly subscribers API hatası:", xhr.status, xhr.responseText);
+        });
+    })();
+</script>

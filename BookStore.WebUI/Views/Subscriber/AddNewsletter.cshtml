@@ -1,0 +1,25 @@
+﻿@using BookStore.DtoLayer.Dtos.SubscriberDto
+@model SendEmailDto
+@{
+    ViewData["Title"] = "AddNewsletter";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="card mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Duyuru Yap</h5>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-controller="Subscriber" asp-action="AddNewsletter">
+            <div class="mb-3">
+                <label class="form-label" for="basic-default-fullname">Konu</label>
+                <input type="text" class="form-control" asp-for="Subject" id="basic-default-fullname" placeholder="example@gmail.com">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="basic-default-message">Mesaj</label>
+                <textarea asp-for="Body" id="basic-default-message" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Gönder</button>
+        </form>
+    </div>
+</div>

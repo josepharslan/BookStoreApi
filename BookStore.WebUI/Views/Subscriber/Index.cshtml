@@ -1,0 +1,35 @@
+﻿@using BookStore.DtoLayer.Dtos.SubscriberDto
+@model List<SubscriberListDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Aboneler</h5>
+        <a asp-action="AddNewsletter" asp-controller="Subscriber" class="btn btn-primary btn-md">
+            Duyuru Yap
+        </a>
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Abone Mail</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.SubcriberMail
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

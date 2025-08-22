@@ -1,0 +1,89 @@
+﻿<section id="popular-books" class="bookshelf py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="section-header align-center">
+                    <div class="title">
+                        <span>Kaliteli Ürünler</span>
+                    </div>
+                    <h2 class="section-title">Popüler Kitaplar</h2>
+                </div>
+
+                <ul class="tabs">
+                    <li data-tab-target="#all-genre" class="active tab">Tüm Kategoriler</li>
+                    @foreach (var category in (List<ResultCategoryDto>)ViewBag.Categories)
+                    {
+                        <li data-tab-target="#category-@category.CategoryId" class="tab">@category.CategoryName</li>
+                    }
+                </ul>
+
+                <div class="tab-content">
+                    <!-- All Products Tab -->
+                    <div id="all-genre" data-tab-content class="active">
+                        <div class="row">
+                            @foreach (var product in ((List<ResultProductDto>)ViewBag.AllProducts).Take(8))
+                            {
+                                <div class="col-md-3">
+                                    <div class="product-item">
+                                        <figure class="product-style">
+                                            <img src="@product.ImageUrl" alt="Kitaplar" class="product-item">
+                                            <button type="button" class="add-to-cart" data-product-tile="add-to-cart">
+                                                Sepete Ekle
+                                            </button>
+                                        </figure>
+                                        <figcaption>
+                                            <h3>@product.ProductName</h3>
+                                            <span>@product.ProductWriter</span>
+                                            <div class="item-price">@product.ProductPrice ₺</div>
+                                        </figcaption>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Category-specific tabs -->
+                    @{
+                        var productsByCategory = (Dictionary<int, List<ResultProductDto>>)ViewBag.ProductsByCategory;
+                    }
+                    @foreach (var category in (List<ResultCategoryDto>)ViewBag.Categories)
+                    {
+                        <div id="category-@category.CategoryId" data-tab-content>
+                            <div class="row">
+                                @if (productsByCategory.ContainsKey(category.CategoryId))
+                                {
+                                    @foreach (var product in productsByCategory[category.CategoryId].Take(8))
+                                    {
+                                        <div class="col-md-3">
+                                            <div class="product-item">
+                                                <figure class="product-style">
+                                                    <img src="@product.ImageUrl" alt="Kitaplar" class="product-item">
+                                                    <button type="button" class="add-to-cart" data-product-tile="add-to-cart">
+                                                        Sepete Ekle
+                                                    </button>
+                                                </figure>
+                                                <figcaption>
+                                                    <h3>@product.ProductName</h3>
+                                                    <span>@product.ProductWriter</span>
+                                                    <div class="item-price">@product.ProductPrice ₺</div>
+                                                </figcaption>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="col-12">
+                                        <p class="text-center">Bu kategoride henüz ürün bulunmamaktadır.</p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

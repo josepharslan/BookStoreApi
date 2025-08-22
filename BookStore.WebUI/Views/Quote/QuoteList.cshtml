@@ -1,0 +1,25 @@
+﻿@using BookStore.DtoLayer.Dtos.QuoteDtos
+@model List<ResultQuoteDto>
+@{
+    ViewData["Title"] = "QuoteList";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+<div class="d-grid gap-2 col-lg-6 mx-auto">
+    <a class="btn btn-success btn-lg text-white" href="/Quote/CreateQuote">Günün sözü ekle</a>
+</div>
+<hr />
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-sm-6 col-lg-4 mb-4 ">
+            <div class="card bg-primary text-white text-center p-3">
+                <figure class="mb-0">
+                    <blockquote class="blockquote">
+                        <p>@item.QuoteName</p>
+                    </blockquote>
+                </figure>
+            </div>
+        </div>
+    }
+</div>

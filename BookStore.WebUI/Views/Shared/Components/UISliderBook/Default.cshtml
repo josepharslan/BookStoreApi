@@ -1,0 +1,81 @@
+﻿@model List<ResultProductDto>
+
+<section id="billboard">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <button class="prev slick-arrow">
+                    <i class="icon icon-arrow-left"></i>
+                </button>
+
+                <div class="main-slider pattern-overlay">
+                    @foreach (var item in Model)
+                    {
+                        <div class="slider-item">
+                            <div class="banner-content">
+                                <h2 class="banner-title">@item.ProductName</h2>
+                                <p>
+                                    @(item.ProductDescription.Length > 70
+                                        ? item.ProductDescription.Substring(0, 70) + "..."
+                                        : item.ProductDescription)
+                                </p>
+                                <div class="btn-wrap">
+                                    <button class="btn btn-outline-accent btn-accent-arrow"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#productModal"
+                                            data-name="@item.ProductName"
+                                            data-desc="@item.ProductDescription"
+                                            data-img="@item.ImageUrl">
+                                        Daha fazlası <i class="icon icon-ns-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div><!--banner-content-->
+                            <img src="@item.ImageUrl" alt="banner" class="banner-image">
+                        </div>
+                    }
+                </div><!--slider-->
+
+                <button class="next slick-arrow">
+                    <i class="icon icon-arrow-right"></i>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="productModalImg" src="" alt="" class="img-fluid mb-3" />
+                <p id="productModalDesc"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var productModal = document.getElementById('productModal');
+    productModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        var name = button.getAttribute('data-name');
+        var desc = button.getAttribute('data-desc');
+        var img = button.getAttribute('data-img');
+
+        var modalTitle = productModal.querySelector('.modal-title');
+        var modalDesc = productModal.querySelector('#productModalDesc');
+        var modalImg = productModal.querySelector('#productModalImg');
+
+        modalTitle.textContent = name;
+        modalDesc.textContent = desc;
+        modalImg.src = img;
+    });
+</script>

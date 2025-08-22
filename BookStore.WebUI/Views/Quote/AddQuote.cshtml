@@ -1,0 +1,23 @@
+﻿@using BookStore.DtoLayer.Dtos.QuoteDtos
+@model CreateQuoteDto
+@{
+    ViewData["Title"] = "AddQuote";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="col-xl">
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Günün Sözü Ekle</h5>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="mb-3">
+                    <label class="form-label" for="quote">Günün Sözü</label>
+                    <input type="text" asp-for="QuoteName" class="form-control" id="quote">
+                </div>
+                <button type="submit" class="btn btn-primary">Ekle</button>
+            </form>
+        </div>
+    </div>
+</div>

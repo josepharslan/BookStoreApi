@@ -1,0 +1,35 @@
+﻿@model ResultProductDto
+
+<section id="best-selling" class="leaf-pattern-overlay">
+    <div class="corner-pattern-overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-8">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <figure class="products-thumb">
+                            <img src="@Model.ImageUrl" alt="book" class="single-image">
+                        </figure>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="product-entry">
+                            <h2 class="section-title divider">En Çok Satan</h2>
+
+                            <div class="products-content">
+                                <div class="author-name">@Model.ProductWriter</div>
+                                <h3 class="item-title">@Model.ProductName</h3>
+
+                                <div class="item-price">@Model.ProductPrice ₺</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
